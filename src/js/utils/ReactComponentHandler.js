@@ -29,7 +29,8 @@ lm.utils.copy( lm.utils.ReactComponentHandler.prototype, {
 	 * @returns {void}
 	 */
 	_render: function() {
-		this._reactComponent = ReactDOM.render( this._getReactComponent(), this._container.getElement()[ 0 ] );
+		this._reactComponent = this._getReactComponent()
+		ReactDOM.render( this._reactComponent, this._container.getElement()[ 0 ] );
 		this._originalComponentWillUpdate = this._reactComponent.componentWillUpdate || function() {
 			};
 		this._reactComponent.componentWillUpdate = this._onUpdate.bind( this );
