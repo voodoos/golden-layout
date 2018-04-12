@@ -1252,12 +1252,12 @@ lm.utils.copy(lm.LayoutManager.prototype, {
    * @returns {void}
    */
   _adjustToWindowMode() {
-    const popInButton = $(
-      `<div class="lm_popin" title="${this.config.labels.popin}">` +
-        '<div class="lm_icon"></div>' +
-        '<div class="lm_bg"></div>' +
-        '</div>'
-    );
+    const popInButton = $(`
+      <div class="lm_popin" title="${this.config.labels.popin}">
+        <div class="lm_icon"></div>
+        <div class="lm_bg"></div>
+      </div>
+    `);
 
     popInButton.on(
       'click',
@@ -1595,9 +1595,11 @@ lm.container.ItemContainer = function(config, parent, layoutManager) {
   this.isHidden = false;
 
   this._config = config;
-  this._element = $(
-    ['<div class="lm_item_container">', '<div class="lm_content"></div>', '</div>'].join('')
-  );
+  this._element = $(`
+    <div class="lm_item_container">
+      <div class="lm_content"></div>
+    </div>
+  `);
 
   this._contentElement = this._element.find('.lm_content');
 };
@@ -2090,17 +2092,19 @@ lm.controls.DragProxy = function(x, y, dragListener, layoutManager, contentItem,
   this._setDropPosition(x, y);
 };
 
-lm.controls.DragProxy._template =
-  '<div class="lm_dragProxy">' +
-  '<div class="lm_header">' +
-  '<ul class="lm_tabs">' +
-  '<li class="lm_tab lm_active"><i class="lm_left"></i>' +
-  '<span class="lm_title"></span>' +
-  '<i class="lm_right"></i></li>' +
-  '</ul>' +
-  '</div>' +
-  '<div class="lm_content"></div>' +
-  '</div>';
+lm.controls.DragProxy._template = `
+  <div class="lm_dragProxy">
+    <div class="lm_header">
+      <ul class="lm_tabs">
+        <li class="lm_tab lm_active"><i class="lm_left"></i>
+          <span class="lm_title"></span>
+          <i class="lm_right"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="lm_content"></div>
+  </div>
+`;
 
 lm.utils.copy(lm.controls.DragProxy.prototype, {
   /**
@@ -2374,13 +2378,12 @@ lm.controls.Header = function(layoutManager, parent) {
   this._createControls();
 };
 
-lm.controls.Header._template = [
-  '<div class="lm_header">',
-  '<ul class="lm_tabs"></ul>',
-  '<ul class="lm_controls"></ul>',
-  '<ul class="lm_tabdropdown_list"></ul>',
-  '</div>',
-].join('');
+lm.controls.Header._template = `
+  <div class="lm_header">
+    <ul class="lm_tabs"></ul>
+    <ul class="lm_controls"></ul>
+    <ul class="lm_tabdropdown_list"></ul>
+  </div>`;
 
 lm.utils.copy(lm.controls.Header.prototype, {
   /**
@@ -2734,7 +2737,7 @@ lm.utils.copy(lm.controls.Header.prototype, {
       } else {
         visibleTabWidth =
           cumulativeTabWidth +
-          activeTab.element.outerWidth() +
+          activeTab.element.find('lm_title').outerWidth() +
           parseInt(activeTab.element.css('margin-right'), 10);
       }
 
@@ -2903,10 +2906,13 @@ lm.controls.Tab = function(header, contentItem) {
  *
  * @type {String}
  */
-lm.controls.Tab._template =
-  '<li class="lm_tab"><i class="lm_left"></i>' +
-  '<span class="lm_title"></span><div class="lm_close_tab"></div>' +
-  '<i class="lm_right"></i></li>';
+lm.controls.Tab._template = `
+  <li class="lm_tab">
+    <i class="lm_left"></i>
+    <span class="lm_title"></span>
+    <div class="lm_close_tab"></div>
+    <i class="lm_right"></i>
+  </li>`;
 
 lm.utils.copy(lm.controls.Tab.prototype, {
   /**

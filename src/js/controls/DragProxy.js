@@ -58,17 +58,19 @@ lm.controls.DragProxy = function(x, y, dragListener, layoutManager, contentItem,
   this._setDropPosition(x, y);
 };
 
-lm.controls.DragProxy._template =
-  '<div class="lm_dragProxy">' +
-  '<div class="lm_header">' +
-  '<ul class="lm_tabs">' +
-  '<li class="lm_tab lm_active"><i class="lm_left"></i>' +
-  '<span class="lm_title"></span>' +
-  '<i class="lm_right"></i></li>' +
-  '</ul>' +
-  '</div>' +
-  '<div class="lm_content"></div>' +
-  '</div>';
+lm.controls.DragProxy._template = `
+  <div class="lm_dragProxy">
+    <div class="lm_header">
+      <ul class="lm_tabs">
+        <li class="lm_tab lm_active"><i class="lm_left"></i>
+          <span class="lm_title"></span>
+          <i class="lm_right"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="lm_content"></div>
+  </div>
+`;
 
 lm.utils.copy(lm.controls.DragProxy.prototype, {
   /**

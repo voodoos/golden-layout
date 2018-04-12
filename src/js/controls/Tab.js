@@ -56,10 +56,13 @@ lm.controls.Tab = function(header, contentItem) {
  *
  * @type {String}
  */
-lm.controls.Tab._template =
-  '<li class="lm_tab"><i class="lm_left"></i>' +
-  '<span class="lm_title"></span><div class="lm_close_tab"></div>' +
-  '<i class="lm_right"></i></li>';
+lm.controls.Tab._template = `
+  <li class="lm_tab">
+    <i class="lm_left"></i>
+    <span class="lm_title"></span>
+    <div class="lm_close_tab"></div>
+    <i class="lm_right"></i>
+  </li>`;
 
 lm.utils.copy(lm.controls.Tab.prototype, {
   /**

@@ -34,13 +34,12 @@ lm.controls.Header = function(layoutManager, parent) {
   this._createControls();
 };
 
-lm.controls.Header._template = [
-  '<div class="lm_header">',
-  '<ul class="lm_tabs"></ul>',
-  '<ul class="lm_controls"></ul>',
-  '<ul class="lm_tabdropdown_list"></ul>',
-  '</div>',
-].join('');
+lm.controls.Header._template = `
+  <div class="lm_header">
+    <ul class="lm_tabs"></ul>
+    <ul class="lm_controls"></ul>
+    <ul class="lm_tabdropdown_list"></ul>
+  </div>`;
 
 lm.utils.copy(lm.controls.Header.prototype, {
   /**
@@ -394,7 +393,7 @@ lm.utils.copy(lm.controls.Header.prototype, {
       } else {
         visibleTabWidth =
           cumulativeTabWidth +
-          activeTab.element.outerWidth() +
+          activeTab.element.find('lm_title').outerWidth() +
           parseInt(activeTab.element.css('margin-right'), 10);
       }
 
