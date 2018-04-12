@@ -399,6 +399,8 @@ lm.utils.copy(lm.controls.Header.prototype, {
           parseInt(activeTab.element.css('margin-right'), 10);
       }
 
+      console.log({ visibleTabWidth, availableWidth, tabOverlapAllowance });
+
       // If the tabs won't fit, check the overlap allowance.
       if (visibleTabWidth > availableWidth) {
         // Once allowance is exceeded, all remaining tabs go to menu.
