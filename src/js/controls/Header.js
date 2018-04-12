@@ -225,15 +225,15 @@ lm.utils.copy(lm.controls.Header.prototype, {
    * @returns {void}
    */
   _createControls() {
-    var closeStack,
-      popout,
-      label,
-      maximiseLabel,
-      minimiseLabel,
-      maximise,
-      maximiseButton,
-      tabDropdownLabel,
-      showTabDropdown;
+    let closeStack;
+    let popout;
+    let label;
+    let maximiseLabel;
+    let minimiseLabel;
+    let maximise;
+    let maximiseButton;
+    let tabDropdownLabel;
+    let showTabDropdown;
 
     /**
      * Dropdown to show additional tabs.
@@ -250,7 +250,7 @@ lm.utils.copy(lm.controls.Header.prototype, {
 
     if (this.parent._header && this.parent._header.dock) {
       const button = lm.utils.fnBind(this.parent.dock, this.parent);
-      var label = this._getHeaderSetting('dock');
+      label = this._getHeaderSetting('dock');
       this.dockButton = new lm.controls.HeaderButton(this, label, 'lm_dock', button);
     }
 
@@ -356,22 +356,24 @@ lm.utils.copy(lm.controls.Header.prototype, {
     const size = function(val) {
       return val ? 'width' : 'height';
     };
+
     this.element.css(size(!this.parent._sided), '');
     this.element[size(this.parent._sided)](this.layoutManager.config.dimensions.headerHeight);
     let availableWidth =
-        this.element.outerWidth() - this.controlsContainer.outerWidth() - this._tabControlOffset,
-      cumulativeTabWidth = 0,
-      visibleTabWidth = 0,
-      tabElement,
-      i,
-      j,
-      marginLeft,
-      overlap = 0,
-      tabWidth,
-      tabOverlapAllowance = this.layoutManager.config.settings.tabOverlapAllowance,
-      tabOverlapAllowanceExceeded = false,
-      activeIndex = this.activeContentItem ? this.tabs.indexOf(this.activeContentItem.tab) : 0,
-      activeTab = this.tabs[activeIndex];
+      this.element.outerWidth() - this.controlsContainer.outerWidth() - this._tabControlOffset;
+    let cumulativeTabWidth = 0;
+    let visibleTabWidth = 0;
+    let tabElement;
+    let i;
+    let j;
+    let marginLeft;
+    let overlap = 0;
+    let tabWidth;
+    const { tabOverlapAllowance } = this.layoutManager.config.settings;
+    let tabOverlapAllowanceExceeded = false;
+    const activeIndex = this.activeContentItem ? this.tabs.indexOf(this.activeContentItem.tab) : 0;
+    const activeTab = this.tabs[activeIndex];
+
     if (this.parent._sided)
       availableWidth =
         this.element.outerHeight() - this.controlsContainer.outerHeight() - this._tabControlOffset;
